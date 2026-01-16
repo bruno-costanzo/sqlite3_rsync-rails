@@ -87,7 +87,6 @@ module Sqlite3Rsync
 
       def run_rsync(source, destination)
         cmd = build_command(source, destination)
-        log "Running: #{cmd}"
         output = `#{cmd} -v 2>&1`
         success = $?.success?
 
@@ -131,13 +130,8 @@ module Sqlite3Rsync
         path = File.join(Dir.tmpdir, "sqlite3_rsync_key")
         key_content = normalize_ssh_key(config.ssh_key)
 
-        log "Writing SSH key to #{path} (#{key_content.bytesize} bytes)"
-        log "Key starts with: #{key_content[0..50]}..."
-
         File.write(path, key_content)
         File.chmod(0600, path)
-
-        log "Key file exists: #{File.exist?(path)}, size: #{File.size(path)}"
 
         path
       end
