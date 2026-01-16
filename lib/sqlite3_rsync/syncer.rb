@@ -144,7 +144,7 @@ module Sqlite3Rsync
 
       def normalize_ssh_key(key)
         key = key.strip.gsub(/\A"|"\z/, '')
-        key = key.gsub(/\n\n+/, "\n")
+        key = key.lines.map(&:strip).reject(&:empty?).join("\n")
         key = key.strip + "\n"
         key
       end
