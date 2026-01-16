@@ -128,13 +128,19 @@ module Sqlite3Rsync
         return config.ssh_key if File.exist?(config.ssh_key.to_s)
 
         path = File.join(Dir.tmpdir, "sqlite3_rsync_key")
+        key_content = normalize_ssh_key(config.ssh_key)
 
-        unless File.exist?(path)
-          File.write(path, config.ssh_key)
-          File.chmod(0600, path)
-        end
+        File.write(path, key_content)
+        File.chmod(0600, path)
 
         path
+      end
+
+      def normalize_ssh_key(key)
+        key = key.strip.gsub(/\A"|"\z/, '')
+        key = key.gsub(/\n\n+/, "\n")
+        key = key.strip + "\n"
+        key
       end
 
       def log(message)
