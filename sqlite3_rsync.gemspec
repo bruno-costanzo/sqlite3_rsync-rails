@@ -1,8 +1,8 @@
 Gem::Specification.new do |spec|
   spec.name          = "sqlite3_rsync"
   spec.version       = "0.1.0"
-  spec.authors       = ["Deploio Team"]
-  spec.email         = ["support@nine.ch"]
+  spec.authors       = ["Bruno Costanzo"]
+  spec.email         = ["bruno.costanzo@renuo.ch"]
 
   spec.summary       = "SQLite database sync for Rails using sqlite3_rsync"
   spec.description   = "Automatically sync your SQLite database to a remote server for persistence in ephemeral environments"
