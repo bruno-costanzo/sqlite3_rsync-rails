@@ -76,11 +76,3 @@ App stops
     │
     └─► Final sync (sqlite3_rsync push)
 ```
-
-## For Deploio
-
-Deploio automatically injects:
-- `SQLITE_REMOTE` - Points to Deploio's SQLite storage service
-- `SQLITE_SSH_KEY` - Pre-configured SSH key
-
-Just add the gem and it works!
