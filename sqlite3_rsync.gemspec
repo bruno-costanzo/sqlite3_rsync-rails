@@ -11,9 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 3.1.0"
 
-  spec.files         = Dir["lib/**/*", "exe/*", "README.md", "LICENSE.txt"]
-  spec.bindir        = "exe"
-  spec.executables   = ["sqlite3_rsync"]
+  spec.files         = Dir["lib/**/*", "README.md", "LICENSE.txt"]
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rails", ">= 7.0"

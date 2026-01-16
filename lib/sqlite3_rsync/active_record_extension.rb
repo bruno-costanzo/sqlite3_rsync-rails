@@ -12,6 +12,8 @@ module Sqlite3Rsync
 
     def _sqlite3_rsync_sync_on_write
       Sqlite3Rsync.sync_debounced
+    rescue => e
+      Sqlite3Rsync.configuration.on_error&.call
     end
   end
 end
